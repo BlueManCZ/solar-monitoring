@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="Ivo Šmerek">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <script src="/static/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <link rel="stylesheet" href="/static/styles/styles.css">
+</head>
+
+<body>
+<div class="image"></div>
+<h1>Monitor solaru</h1>
+<div class="power">
+    <table>
+        <tr>
+            <td><p class="title">Výkon panelů</p><p class="big"><span id="power">0</span> W</p></td>
+            <td><p class="title">Dodávka do sítě</p><p class="big"><span id="PPS">0</span> W</p></td>
+        </tr>
+    </table>
+    <p class="title">Dnešní celková dodávka</p><p class="big2"><span id="TEG">0</span> Wh</p>
+</div>
+<div class="tile">
+    <p class="title">Napěťový měnič</p>
+    <table>
+        <tr>
+            <td><img src="/static/images/speed.png"><p><span id="PCP">0</span>%</p></td>
+            <td><img src="/static/images/thermometer.png"><p><span id="T">0</span>°C</p></td>
+        </tr>
+    </table>
+    <p class="title">Akumulátor</p>
+    <table>
+        <tr>
+            <td><img src="/static/images/battery.png"><p><span id="AC1U">0</span>V</p></td>
+            <td><img src="/static/images/current.png"><p><span id="AC1I">0</span>A</p></td>
+        </tr>
+    </table>
+    <p class="title">Zdroj</p>
+    <table>
+        <tr>
+            <td><img src="/static/images/supply.png"><p><span id="PS1U">0</span>V</p></td>
+            <td><img src="/static/images/current.png"><p><span id="PS1I">0</span>A</p></td>
+        </tr>
+    </table>
+</div>
+
+</body>
+
+<script>
+
+    function updateBackground(power) {
+        ratio = Math.min((power||0/150), 1);
+
+        //R = Math.min((2*ratio)*255,250);
+        //G = 150-ratio*50;
+        //B = Math.min(190-(ratio)*190, 190);
+
+        //document.getElementsByTagName('body')[0].style.background = 'linear-gradient(180deg, rgba(' + R + ',' + G + ',' + B + ',1) 0%, rgba(' + R + ',' + G + ',' + B + ',0.65) 70%'
+        document.getElementsByClassName('image')[0].style.opacity = ratio;
+    }
+
+    let socket = io();
+    console.log("!")
+    socket.on('refresh', function(data) {
+        power = 0
+
+        for (let i = 0; i < data.panels.U.length; i++) {
+            power += data.panels.U[i] * data.panels.I[i]
+        }
+
+        document.getElementById('power').innerText = Math.round(power||0);
+        document.getElementById('PPS').innerText = -1 * data.system.PPS;
+        document.getElementById('TEG').innerText = data.system.TEG.toFixed(3);
+        document.getElementById('PCP').innerText = data.system.PCP;
+        document.getElementById('T').innerText = data.system.T;
+        document.getElementById('AC1U').innerText = parseFloat(data.batteries.U[0]).toFixed(2);
+        document.getElementById('AC1I').innerText = data.batteries.I[0];
+        document.getElementById('PS1U').innerText = parseFloat(data.power_supplies.U[0]).toFixed(2);
+        document.getElementById('PS1I').innerText = data.power_supplies.I[0];
+        //document.getElementById('AC1C').innerText = data.batteries.C[0]
+
+        updateBackground(power);
+
+        console.log(power);
+    });
+
+</script>
+
+</html>

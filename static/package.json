@@ -1,0 +1,6 @@
+{
+  "url": "https://github.com/owner/project/issues",
+  "dependencies": {
+    "socket.io": "^2.3.0"
+  }
+}
