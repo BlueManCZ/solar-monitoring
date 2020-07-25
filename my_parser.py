@@ -1,15 +1,23 @@
 import urllib3
 import json
 
+TIMEOUT = 1
+
 
 def fetch_url(url):
     http = urllib3.PoolManager()
-    resp = http.request('GET', url)
+    try:
+        resp = http.request('GET', url, timeout=TIMEOUT)
+    except Exception as e:
+        return False
     return resp.data.decode('utf-8')
 
 
 def parse():
     site = fetch_url('10.0.0.28')
+
+    if not site:
+        return site
 
     voltages_tmp = site.split('U1= ')[1].split('V<br>')[0].replace('V U2= ', '+').split('+')
     u0 = float(voltages_tmp[0])

@@ -50,6 +50,8 @@ def auto_refresh():
     while running:
         if connections > 0:
             data = parse()
+            if not data:
+                continue
             sio.emit('refresh', data, namespace='/')
         sleep(2)
 
