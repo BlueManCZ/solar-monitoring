@@ -17,7 +17,7 @@
     <table>
         <tr>
             <td><p class="title">Výkon panelů</p><p class="big"><span id="power">0</span> W</p></td>
-            <td><p class="title">Dodávka do sítě</p><p class="big"><span id="PPS">0</span> W</p></td>
+            <td><p class="title">Výkon do fáze</p><p class="big"><span id="PPS">0</span> W</p></td>
         </tr>
     </table>
     <p class="title">Dnešní celková dodávka</p><p class="big2"><span id="TEG">0</span> Wh</p>
@@ -44,6 +44,16 @@
             <td><img src="/static/images/current.png"><p><span id="PS1I">0</span>A</p></td>
         </tr>
     </table>
+    <p class="title">Schéma zapojení</p>
+    <div class="canvas">
+        <img src="/static/images/domek.png">
+        <div class="block0"><span id="power2">0</span>W</div>
+        <div class="block1"><span id="PPS2">0</span>W</div>
+        <div class="block2"><span id="PF3">0</span>W</div>
+        <div class="block3"><span id="PF2">0</span>W</div>
+        <div class="block4"><span id="PF1">0</span>W</div>
+        <div class="block5"><span id="PI">0</span>W</div>
+    </div>
 </div>
 
 </body>
@@ -80,6 +90,12 @@
         document.getElementById('PS1U').innerText = parseFloat(data.power_supplies.U[0]).toFixed(2);
         document.getElementById('PS1I').innerText = data.power_supplies.I[0];
         //document.getElementById('AC1C').innerText = data.batteries.C[0]
+        document.getElementById('power2').innerText = Math.round(power||0);
+        document.getElementById('PPS2').innerText = data.system.PPS;
+        document.getElementById('PF1').innerText = data.system.PF1;
+        document.getElementById('PF2').innerText = data.system.PF2;
+        document.getElementById('PF3').innerText = data.system.PF3;
+        document.getElementById('PI').innerText = data.system.PI;
 
         updateBackground(power);
 

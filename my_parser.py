@@ -9,7 +9,7 @@ def fetch_url(url):
     try:
         resp = http.request('GET', url, timeout=TIMEOUT)
     except Exception as e:
-        return False
+        return ''
     return resp.data.decode('utf-8')
 
 
@@ -40,6 +40,11 @@ def parse():
     phase_power_supply = int(site.split('] ')[1].split(' <br>')[0].split(' ')[3])
     temperature = int(site.split('Do L')[1].split('°C')[0].split(' ')[2])
 
+    power_intake = int(site.split('] ')[1].split(' <br>')[0].split(' ')[0])
+    power_floor1 = int(site.split('] ')[1].split(' <br>')[0].split(' ')[1])
+    power_floor3 = int(site.split('] ')[1].split(' <br>')[0].split(' ')[2])
+    power_floor2 = power_intake - power_floor1 - power_floor3 - phase_power_supply
+
     data = {}
 
     panels = {'U': panel_voltages, 'I': panel_currents}
@@ -58,7 +63,11 @@ def parse():
         'OPM': overall_power_max,
         'PCP': phase_converter_percentages,
         'PPS': phase_power_supply,
-        'T': temperature
+        'T': temperature,
+        'PI': power_intake,
+        'PF1': power_floor1,
+        'PF2': power_floor2,
+        'PF3': power_floor3
     }
     data['system'] = system
 

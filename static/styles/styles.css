@@ -173,4 +173,49 @@ h1 {
       position: relative;
       margin-right: 5px; }
 
+.canvas {
+  text-align: center;
+  position: relative;
+  margin-top: 30px; }
+  .canvas img {
+    width: 260px; }
+  .canvas .block1, .canvas .block0, .canvas .block2, .canvas .block3, .canvas .block4, .canvas .block5 {
+    position: absolute;
+    text-align: center;
+    margin: 50px;
+    background: aqua;
+    top: 0;
+    float: left;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+    border: solid 2px gray;
+    background: white;
+    font-family: "Open Sans", serif;
+    color: grey;
+    font-size: 15px; }
+    .canvas .block1 span, .canvas .block0 span, .canvas .block2 span, .canvas .block3 span, .canvas .block4 span, .canvas .block5 span {
+      font-weight: 700;
+      font-size: 20px;
+      position: relative;
+      margin-right: 3px; }
+  .canvas .block0 {
+    top: -60px;
+    border: none;
+    left: -200px;
+    background: none; }
+  .canvas .block2 {
+    top: 73px; }
+  .canvas .block3 {
+    top: 153px; }
+  .canvas .block4 {
+    top: 233px; }
+  .canvas .block5 {
+    top: 300px;
+    border: none;
+    left: -100px;
+    background: none; }
+
 /*# sourceMappingURL=styles.css.map */
