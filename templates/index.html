@@ -61,7 +61,9 @@
 <script>
 
     function updateBackground(power) {
-        ratio = Math.min((power||0/150), 1);
+        ratio = Math.min((power||0)/150, 1);
+
+        console.log(ratio)
 
         //R = Math.min((2*ratio)*255,250);
         //G = 150-ratio*50;
