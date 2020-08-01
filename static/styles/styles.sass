@@ -210,31 +210,30 @@ h1
   text-align: center
   position: relative
   margin-top: 30px
+  padding-bottom: 30px
 
   img
     width: 260px
+    opacity: 0.5
 
   .block1
     position: absolute
     text-align: center
-    margin: 50px
-    background: aqua
-    top: 0
+    top: -5px
     float: left
     left: 0
     right: 0
-    margin-left: auto
-    margin-right: auto
+    margin: 50px auto
     width: 100px
-    border: solid 2px gray
+    border: solid 2px rgba(128, 128, 128, 0.5)
     background: white
     font-family: $font1
     color: grey
-    font-size: 15px
+    font-size: 24px
 
     span
       font-weight: 700
-      font-size: 20px
+      font-size: 30px
       position: relative
       margin-right: 3px
 
@@ -242,24 +241,24 @@ h1
     @extend .block1
     top: -60px
     border: none
-    left: -200px
+    left: -250px
     background: none
 
   .block2
     @extend .block1
-    top: 73px
+    top: 65px
 
   .block3
     @extend .block1
-    top: 153px
+    top: 145px
 
   .block4
     @extend .block1
-    top: 233px
+    top: 225px
 
   .block5
     @extend .block1
-    top: 300px
+    top: 295px
     border: none
-    left: -100px
+    left: -110px
     background: none

@@ -176,46 +176,45 @@ h1 {
 .canvas {
   text-align: center;
   position: relative;
-  margin-top: 30px; }
+  margin-top: 30px;
+  padding-bottom: 30px; }
   .canvas img {
-    width: 260px; }
+    width: 260px;
+    opacity: 0.5; }
   .canvas .block1, .canvas .block0, .canvas .block2, .canvas .block3, .canvas .block4, .canvas .block5 {
     position: absolute;
     text-align: center;
-    margin: 50px;
-    background: aqua;
-    top: 0;
+    top: -5px;
     float: left;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 50px auto;
     width: 100px;
-    border: solid 2px gray;
+    border: solid 2px rgba(128, 128, 128, 0.5);
     background: white;
     font-family: "Open Sans", serif;
     color: grey;
-    font-size: 15px; }
+    font-size: 24px; }
     .canvas .block1 span, .canvas .block0 span, .canvas .block2 span, .canvas .block3 span, .canvas .block4 span, .canvas .block5 span {
       font-weight: 700;
-      font-size: 20px;
+      font-size: 30px;
       position: relative;
       margin-right: 3px; }
   .canvas .block0 {
     top: -60px;
     border: none;
-    left: -200px;
+    left: -250px;
     background: none; }
   .canvas .block2 {
-    top: 73px; }
+    top: 65px; }
   .canvas .block3 {
-    top: 153px; }
+    top: 145px; }
   .canvas .block4 {
-    top: 233px; }
+    top: 225px; }
   .canvas .block5 {
-    top: 300px;
+    top: 295px;
     border: none;
-    left: -100px;
+    left: -110px;
     background: none; }
 
 /*# sourceMappingURL=styles.css.map */
