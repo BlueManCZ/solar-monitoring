@@ -83,7 +83,7 @@
         }
 
         document.getElementById('power').innerText = Math.round(power||0);
-        document.getElementById('PPS').innerText = -1 * data.system.PPS;
+        document.getElementById('PPS').innerText = data.system.PPS;
         document.getElementById('TEG').innerText = data.system.TEG.toFixed(3);
         document.getElementById('PCP').innerText = data.system.PCP;
         document.getElementById('T').innerText = data.system.T;

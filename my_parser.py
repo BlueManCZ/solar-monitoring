@@ -37,12 +37,12 @@ def parse():
     today_power_max = float(site.split('dnes <b>')[1].split('W')[0])
     overall_power_max = float(site.split('Max výkon <b>')[1].split('W')[0])
     phase_converter_percentages = int(site.split('[')[1].split('%')[0])
-    phase_power_supply = int(site.split('] ')[1].split(' <br>')[0].split(' ')[3])
+    phase_power_supply = -int(site.split('] ')[1].split(' <br>')[0].split(' ')[3])
     temperature = int(site.split('Do L')[1].split('°C')[0].split(' ')[2])
 
-    power_intake = int(site.split('] ')[1].split(' <br>')[0].split(' ')[0])
-    power_floor1 = int(site.split('] ')[1].split(' <br>')[0].split(' ')[1])
-    power_floor3 = int(site.split('] ')[1].split(' <br>')[0].split(' ')[2])
+    power_intake = -int(site.split('] ')[1].split(' <br>')[0].split(' ')[0])
+    power_floor1 = -int(site.split('] ')[1].split(' <br>')[0].split(' ')[1])
+    power_floor3 = -int(site.split('] ')[1].split(' <br>')[0].split(' ')[2])
     power_floor2 = power_intake - power_floor1 - power_floor3 - phase_power_supply
 
     data = {}
