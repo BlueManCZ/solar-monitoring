@@ -63,8 +63,6 @@
     function updateBackground(power) {
         ratio = Math.min((power||0)/150, 1);
 
-        console.log(ratio)
-
         //R = Math.min((2*ratio)*255,250);
         //G = 150-ratio*50;
         //B = Math.min(190-(ratio)*190, 190);
@@ -74,7 +72,6 @@
     }
 
     let socket = io();
-    console.log("!")
     socket.on('refresh', function(data) {
         document.getElementById('power').innerText = data['aktualniVykon'];
         document.getElementById('PPS').innerText = -data['prikonFaze1C'];

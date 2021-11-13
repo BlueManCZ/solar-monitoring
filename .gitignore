@@ -9,3 +9,6 @@ __pycache__/
 
 # SASS
 .sass-cache/
+
+# Nohup
+nohup.out
