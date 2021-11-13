@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Ivo Šmerek">
     <meta name='viewport' content='width=device-width,initial-scale=1'>
-    <script src="/static/node_modules/socket.io-client/dist/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/static/styles/styles.css">
 </head>
 
@@ -76,32 +76,23 @@
     let socket = io();
     console.log("!")
     socket.on('refresh', function(data) {
-        power = 0
+        document.getElementById('power').innerText = data['aktualniVykon'];
+        document.getElementById('PPS').innerText = -data['prikonFaze1C'];
+        document.getElementById('TEG').innerText = data['dnesniDodavka'];
+        document.getElementById('PCP').innerText = data['vyuzitiMenice'];
+        document.getElementById('T').innerText = data['teplotaMenice'];
+        document.getElementById('AC1U').innerText = data['napetiAku'];
+        document.getElementById('AC1I').innerText = data['proudAku'];
+        document.getElementById('PS1U').innerText = data['napetiZdr'];
+        document.getElementById('PS1I').innerText = data['proudZdr'];
+        document.getElementById('power2').innerText = data['aktualniVykon'];
+        document.getElementById('PPS2').innerText = -data['prikonFaze1C'];
+        document.getElementById('PF3').innerText = -data['prikonFaze1B'];
+        document.getElementById('PF2').innerText = -(data['prikonFaze1'] - data['prikonFaze1A'] - data['prikonFaze1B'] - data['prikonFaze1C']);
+        document.getElementById('PF1').innerText = -data['prikonFaze1A'];
+        document.getElementById('PI').innerText = -data['prikonFaze1'];
 
-        for (let i = 0; i < data.panels.U.length; i++) {
-            power += data.panels.U[i] * data.panels.I[i]
-        }
-
-        document.getElementById('power').innerText = Math.round(power||0);
-        document.getElementById('PPS').innerText = data.system.PPS;
-        document.getElementById('TEG').innerText = data.system.TEG.toFixed(3);
-        document.getElementById('PCP').innerText = data.system.PCP;
-        document.getElementById('T').innerText = data.system.T;
-        document.getElementById('AC1U').innerText = parseFloat(data.batteries.U[0]).toFixed(2);
-        document.getElementById('AC1I').innerText = data.batteries.I[0];
-        document.getElementById('PS1U').innerText = parseFloat(data.power_supplies.U[0]).toFixed(2);
-        document.getElementById('PS1I').innerText = data.power_supplies.I[0];
-        //document.getElementById('AC1C').innerText = data.batteries.C[0]
-        document.getElementById('power2').innerText = Math.round(power||0);
-        document.getElementById('PPS2').innerText = data.system.PPS;
-        document.getElementById('PF1').innerText = data.system.PF1;
-        document.getElementById('PF2').innerText = data.system.PF2;
-        document.getElementById('PF3').innerText = data.system.PF3;
-        document.getElementById('PI').innerText = data.system.PI;
-
-        updateBackground(power);
-
-        console.log(power);
+        updateBackground(data['aktualniVykon']);
     });
 
 </script>

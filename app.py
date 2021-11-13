@@ -9,7 +9,6 @@ ADDRESS = '0.0.0.0'
 PORT = 5000
 
 app = Flask(__name__)
-app.secret_key = 'secret'
 sio = SocketIO(app)
 connections = 0
 running = True
@@ -69,7 +68,6 @@ def hello_world():
 
 
 if __name__ == '__main__':
-
     signal(SIGINT, quit_handler)
 
     y = threading.Thread(target=auto_refresh)

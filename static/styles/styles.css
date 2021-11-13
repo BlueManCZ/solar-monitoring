@@ -2,45 +2,56 @@
 @font-face {
   font-family: Baloo2;
   src: url(../fonts/Baloo_2/Baloo2-ExtraBold.ttf);
-  font-weight: 800; }
+  font-weight: 800;
+}
 @font-face {
   font-family: Baloo2;
   src: url(../fonts/Baloo_2/Baloo2-Bold.ttf);
-  font-weight: 700; }
+  font-weight: 700;
+}
 @font-face {
   font-family: Baloo2;
   src: url(../fonts/Baloo_2/Baloo2-SemiBold.ttf);
-  font-weight: 600; }
+  font-weight: 600;
+}
 @font-face {
   font-family: Baloo2;
   src: url(../fonts/Baloo_2/Baloo2-Medium.ttf);
-  font-weight: 500; }
+  font-weight: 500;
+}
 @font-face {
   font-family: Baloo2;
   src: url(../fonts/Baloo_2/Baloo2-Regular.ttf);
-  font-weight: 400; }
+  font-weight: 400;
+}
 @font-face {
   font-family: "Open Sans";
   src: url(../fonts/Open_Sans/OpenSans-ExtraBold.ttf);
-  font-weight: 800; }
+  font-weight: 800;
+}
 @font-face {
   font-family: "Open Sans";
   src: url(../fonts/Open_Sans/OpenSans-Bold.ttf);
-  font-weight: 700; }
+  font-weight: 700;
+}
 @font-face {
   font-family: "Open Sans";
   src: url(../fonts/Open_Sans/OpenSans-SemiBold.ttf);
-  font-weight: 600; }
+  font-weight: 600;
+}
 @font-face {
   font-family: "Open Sans";
   src: url(../fonts/Open_Sans/OpenSans-Regular.ttf);
-  font-weight: 400; }
+  font-weight: 400;
+}
 @font-face {
   font-family: "Open Sans";
   src: url(../fonts/Open_Sans/OpenSans-Light.ttf);
-  font-weight: 300; }
+  font-weight: 300;
+}
 html {
-  height: 100%; }
+  height: 100%;
+}
 
 body {
   background-image: url(/static/images/night.jpg);
@@ -48,7 +59,8 @@ body {
   background-position: center bottom;
   height: 100%;
   margin: 0;
-  transition: ease-in-out 1s; }
+  transition: ease-in-out 1s;
+}
 
 .image {
   position: fixed;
@@ -63,7 +75,8 @@ body {
   z-index: -1;
   opacity: 0;
   transition: ease-in-out 1s;
-  filter: brightness(0.8); }
+  filter: brightness(0.8);
+}
 
 h1 {
   position: relative;
@@ -78,15 +91,18 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 5px;
   margin-left: 20px;
-  margin-right: 15px; }
+  margin-right: 15px;
+}
 
 .power table {
   width: calc(100% - 40px);
   margin: 0 20px;
   margin-top: 5px;
-  border-top: solid 2px rgba(255, 255, 255, 0.3); }
-  .power table td {
-    width: 50%; }
+  border-top: solid 2px rgba(255, 255, 255, 0.3);
+}
+.power table td {
+  width: 50%;
+}
 .power .title {
   font-family: "Open Sans", serif;
   color: white;
@@ -96,7 +112,8 @@ h1 {
   margin-top: 20px;
   margin-bottom: 0;
   text-transform: uppercase;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+}
 .power .big, .power .big2 {
   font-size: 30px;
   font-family: "Open Sans", serif;
@@ -104,15 +121,19 @@ h1 {
   text-align: center;
   margin-top: 0;
   margin-bottom: 0;
-  white-space: nowrap; }
-  .power .big span, .power .big2 span {
-    font-weight: bold;
-    font-size: 55px; }
+  white-space: nowrap;
+}
+.power .big span, .power .big2 span {
+  font-weight: bold;
+  font-size: 55px;
+}
 .power .big2 {
   margin-top: 3px;
-  margin-bottom: 20px; }
-  .power .big2 span {
-    font-size: 40px !important; }
+  margin-bottom: 20px;
+}
+.power .big2 span {
+  font-size: 40px !important;
+}
 
 .tile_old {
   margin: 0 20px;
@@ -120,101 +141,121 @@ h1 {
   border: solid 2px rgba(255, 255, 255, 0.6);
   height: 100px;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1); }
-  .tile_old .title {
-    font-family: "Open Sans", serif;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 600;
-    margin: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px; }
+  background: rgba(255, 255, 255, 0.1);
+}
+.tile_old .title {
+  font-family: "Open Sans", serif;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
 
 .tile {
   width: 100%;
   border-radius: 20px 20px 0 0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.38);
-  background: white; }
-  .tile .title {
-    font-family: "Open Sans", serif;
-    color: grey;
-    text-align: center;
-    font-size: 14px;
-    font-weight: 700;
-    padding: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    margin-top: 0; }
-  .tile table {
-    width: 100%;
-    text-align: center;
-    padding: 0 25px;
-    border-bottom: solid 1px #e6e6e6; }
-    .tile table td img {
-      height: 35px;
-      filter: invert(0.5);
-      margin-right: 10px;
-      margin-bottom: -5px; }
-    .tile table td p {
-      display: inline-block;
-      font-family: "Open Sans", serif;
-      color: grey;
-      font-size: 24px;
-      letter-spacing: 1px;
-      margin: 15px 0 15px;
-      font-weight: 600; }
-    .tile table td span {
-      font-family: "Ubuntu", sans-serif;
-      font-weight: 700;
-      font-size: 30px;
-      position: relative;
-      margin-right: 5px; }
+  background: white;
+}
+.tile .title {
+  font-family: "Open Sans", serif;
+  color: grey;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.tile table {
+  width: 100%;
+  text-align: center;
+  padding: 0 25px;
+  border-bottom: solid 1px #e6e6e6;
+}
+.tile table td {
+  width: 50%;
+}
+.tile table td img {
+  height: 35px;
+  filter: invert(0.5);
+  margin-right: 10px;
+  margin-bottom: -5px;
+}
+.tile table td p {
+  display: inline-block;
+  font-family: "Open Sans", serif;
+  color: grey;
+  font-size: 24px;
+  letter-spacing: 1px;
+  margin: 15px 0 15px;
+  font-weight: 600;
+}
+.tile table td span {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  position: relative;
+  margin-right: 5px;
+}
 
 .canvas {
   text-align: center;
   position: relative;
   margin-top: 30px;
-  padding-bottom: 30px; }
-  .canvas img {
-    width: 260px;
-    opacity: 0.5; }
-  .canvas .block1, .canvas .block0, .canvas .block2, .canvas .block3, .canvas .block4, .canvas .block5 {
-    position: absolute;
-    text-align: center;
-    top: -5px;
-    float: left;
-    left: 0;
-    right: 0;
-    margin: 50px auto;
-    width: 100px;
-    border: solid 2px rgba(128, 128, 128, 0.5);
-    background: white;
-    font-family: "Open Sans", serif;
-    color: grey;
-    font-size: 24px; }
-    .canvas .block1 span, .canvas .block0 span, .canvas .block2 span, .canvas .block3 span, .canvas .block4 span, .canvas .block5 span {
-      font-weight: 700;
-      font-size: 30px;
-      position: relative;
-      margin-right: 3px; }
-  .canvas .block0 {
-    top: -60px;
-    border: none;
-    left: -250px;
-    background: none; }
-  .canvas .block2 {
-    top: 65px; }
-  .canvas .block3 {
-    top: 145px; }
-  .canvas .block4 {
-    top: 225px; }
-  .canvas .block5 {
-    top: 295px;
-    border: none;
-    left: -110px;
-    background: none; }
+  padding-bottom: 30px;
+}
+.canvas img {
+  width: 260px;
+  opacity: 0.5;
+}
+.canvas .block1, .canvas .block5, .canvas .block4, .canvas .block3, .canvas .block2, .canvas .block0 {
+  position: absolute;
+  text-align: center;
+  top: -5px;
+  float: left;
+  left: 0;
+  right: 0;
+  margin: 50px auto;
+  width: 100px;
+  border: solid 2px rgba(128, 128, 128, 0.5);
+  background: white;
+  font-family: "Open Sans", serif;
+  color: grey;
+  font-size: 24px;
+}
+.canvas .block1 span, .canvas .block5 span, .canvas .block4 span, .canvas .block3 span, .canvas .block2 span, .canvas .block0 span {
+  font-weight: 700;
+  font-size: 25px;
+  position: relative;
+  margin-right: 3px;
+}
+.canvas .block0 {
+  top: -55px;
+  border: none;
+  left: -250px;
+  background: none;
+}
+.canvas .block2 {
+  top: 65px;
+}
+.canvas .block3 {
+  top: 145px;
+}
+.canvas .block4 {
+  top: 225px;
+}
+.canvas .block5 {
+  top: 300px;
+  border: none;
+  left: -110px;
+  background: none;
+}
 
 /*# sourceMappingURL=styles.css.map */
