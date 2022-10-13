@@ -8,7 +8,7 @@ def fetch_url(url):
     http = urllib3.PoolManager()
     try:
         resp = http.request('GET', url, timeout=TIMEOUT)
-    except Exception as e:
+    except Exception as _:
         return ''
     return resp.data.decode('utf-8')
 

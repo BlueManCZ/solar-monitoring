@@ -1,15 +1,23 @@
+#!/usr/bin/env python3
+
+from eventlet import monkey_patch
+monkey_patch()
+
 from flask import Flask, render_template
-from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO
 from time import sleep
 from signal import signal, SIGINT
 import threading
 from my_parser import parse
 
 ADDRESS = '0.0.0.0'
-PORT = 5000
+PORT = 8080
 
 app = Flask(__name__)
-sio = SocketIO(app)
+sio = SocketIO(
+    app,
+    cors_allowed_origins="*"
+)
 connections = 0
 running = True
 
@@ -55,22 +63,22 @@ def auto_refresh():
         sleep(2)
 
 
-def quit_handler(signal_received, frame):
+def quit_handler(_, __):
     global running
     running = False
     quit()
 
 
 @app.route('/')
-def hello_world():
-
+def main():
     return render_template('index.html')
 
 
 if __name__ == '__main__':
     signal(SIGINT, quit_handler)
 
-    y = threading.Thread(target=auto_refresh)
-    y.start()
+    thread = threading.Thread(target=auto_refresh)
+    thread.daemon = True
+    thread.start()
 
     sio.run(app, host=ADDRESS, port=PORT, debug=True)
