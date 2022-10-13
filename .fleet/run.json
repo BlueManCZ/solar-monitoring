@@ -1,0 +1,9 @@
+{
+    "configurations": [
+        {
+          "type": "python",
+          "name": "Start application",
+          "arguments": ["app.py"],
+        },
+    ]
+}
